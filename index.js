@@ -46,7 +46,7 @@ let usuarios  =  [ ];
         alert ("no hay usuarios registrados ");
     }
  }; 
- /*
+
  const menuUsuarios = () =>{
   let estado = true ;
   while ( estado ) { 
@@ -97,53 +97,3 @@ let usuarios  =  [ ];
 }
 
 menuUsuarios();
-*/
-const menuUsuarios = () => {
-    let estado = true;
-    while (estado) {
-        let opcion = parseInt(
-            prompt(
-                `
-              Menu Usuarios 
-              1- Mostrar usuarios
-              2- Agregar Usuarios 
-              3- Eliminar Usuarios
-              4- Volver 
-              `
-            )
-        );
-        switch (opcion) {
-            case 1:
-                mostrarUsuarios(); // Corregido el nombre de la función
-                break;
-            case 2:
-                let nombre = prompt("Ingrese su nombre").toLowerCase();
-                let apellido = prompt("Ingrese su apellido").toLowerCase();
-                let edad;
-                while (true) {
-                    edad = prompt("Ingrese su edad: ");
-                    if (edad >= 18) {
-                        break;
-                    } else {
-                        alert("Ingreso apto para mayores de 18");
-                    }
-                }
-                let nuevoUsuario = new Usuario(nombre, apellido, edad); // Asumiendo que tienes una clase Usuario definida
-                agregarUsuario(nuevoUsuario);
-                break;
-
-            case 3:
-                let idUsuario = parseInt(prompt("Ingrese el ID del usuario a eliminar"));
-                eliminarUsuario(idUsuario);
-                break;
-            case 4:
-                estado = false;
-                menuPrincipal();
-                break;
-            default:
-                alert("Ingrese una opción válida");
-                break;
-        }
-    }
-};
-menuUsuarios()
